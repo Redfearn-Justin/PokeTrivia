@@ -1,3 +1,22 @@
+
+hr {
+    height: 12px;
+    border: 0;
+    box-shadow: inset 0 12px 12px -12px rgba(245, 240, 240, 0.685);
+}
+
+#startButton {
+    height: 80px;
+    width: 80px;
+    border-radius: 50px;
+    /* If enough time, consider moving image below to HTML */
+    background-image: url('../images/pokeball.png');
+    background-size: contain;
+    background-position: center;
+    border: none;
+    /* Couldn't find out how to get rid of default button styling */
+}
+
 .playScreen {
     color: white;
     text-shadow: 3px 3px 4px #000103;
@@ -8,9 +27,8 @@
     letter-spacing: 1px;
     padding-left: 2%;
     padding-top: 2%;
-
+    box-shadow: 0px 0px 18px 5px red;
 }
-
 
 .startScreen, .bannerScreen {
     text-align: center;
@@ -32,7 +50,6 @@ h1 {
     text-shadow: 3px 5px 20px #071c61;
     color: yellow;
 }
-
 
 body {
     background-image: url('../images/background-2.png');
