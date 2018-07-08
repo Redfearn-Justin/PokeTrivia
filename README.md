@@ -1,9 +1,9 @@
 # TriviaGame
 
 
-##Assignment #5
+## Assignment #5
 
-###Instructions
+### Instructions
 
 * Once the player has pressed the Pokeball (aka Start Button) the game will commence
 
