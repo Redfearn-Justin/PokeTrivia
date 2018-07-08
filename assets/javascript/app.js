@@ -49,18 +49,6 @@ $(document).ready(function() {
 
     }
 
-    //function to show content
-
-    function showContent (j) {
-        $(j).show();
-    }
-
-    //function to hide content
-
-    function hideContent (j) {
-        $(j).hide();
-    }
-
     //function to start the game
 
     function gameStart() {
@@ -81,13 +69,13 @@ $(document).ready(function() {
 
     function gameOver() {
 
-        hideContent(".playScreen");
+        $(".playScreen").hide();
 
-        hideContent(".bannerScreen");
+        $(".bannerScreen").hide();
 
-        hideContent(".startScreen");
+        $(".startScreen").hide();
 
-        showContent(".endScreen");
+        $(".endScreen").show();
         
     }
 
@@ -95,13 +83,13 @@ $(document).ready(function() {
 
     function initializeScreen () {
 
-        hideContent(".playScreen");
+        $(".playScreen").hide();
 
-        hideContent(".bannerScreen");
+        $(".bannerScreen").hide();
 
-        hideContent(".endScreen");
+        $(".endScreen").hide();
 
-        showContent(".startScreen");
+        $(".startScreen").show();
     }
 
     //function for going through responses
