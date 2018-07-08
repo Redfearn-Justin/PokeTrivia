@@ -55,6 +55,11 @@ hr {
     margin-top: 20%;
 }
 
+/* attempt to hide elements to alleviate "flash" issue */
+.playScreen, .bannerScreen, .endScreen {
+    display: none;
+}
+
 h1 {
     text-align: center;
     font-family: 'Sedgwick Ave', cursive, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial;

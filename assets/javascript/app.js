@@ -49,22 +49,6 @@ $(document).ready(function() {
 
     }
 
-    //function to start the game
-
-    function gameStart() {
-
-        $(".playScreen").show();
-
-        $(".bannerScreen").show();
-
-        $(".startScreen").hide();
-
-        $(".endScreen").hide();
-
-        timerCountDown();
-
-    }
-
     //function for when the game ends
 
     function gameOver() {
@@ -77,19 +61,6 @@ $(document).ready(function() {
 
         $(".endScreen").show();
         
-    }
-
-    //function to initialize the screen before the user presses the button
-
-    function initializeScreen () {
-
-        $(".playScreen").hide();
-
-        $(".bannerScreen").hide();
-
-        $(".endScreen").hide();
-
-        $(".startScreen").show();
     }
 
     //function for going through responses
@@ -258,15 +229,19 @@ $(document).ready(function() {
         }
     }
 
-    //calling initializeScreen function
-
-    initializeScreen();
-
     //start game click event
 
     $("#startButton").on("click", function() {
 
-        gameStart();
+        $(".playScreen").show();
+
+        $(".bannerScreen").show();
+
+        $(".startScreen").hide();
+
+        $(".endScreen").hide();
+
+        timerCountDown();
 
         responseCheck();
 
@@ -276,6 +251,8 @@ $(document).ready(function() {
 
             gameOver();
         }
+
+        debugger;
 
     });
 
