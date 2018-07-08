@@ -60,6 +60,8 @@ $(document).ready(function() {
         $(".startScreen").hide();
 
         $(".endScreen").show();
+
+        console.log("game's over!");
         
     }
 
@@ -77,7 +79,7 @@ $(document).ready(function() {
             $("#correctCountDiv").text("Correct Answers: " + correctCount);
 
         }
-        else {
+        else if (question1Capture != 1) {
 
             console.log("incorrect");
             wrongCount++;
@@ -93,7 +95,7 @@ $(document).ready(function() {
             $("#correctCountDiv").text("Correct Answers: " + correctCount);
 
         }
-        else {
+        else if (question2Capture != 1) {
 
             console.log("incorrect");
             wrongCount++;
@@ -109,7 +111,7 @@ $(document).ready(function() {
             $("#correctCountDiv").text("Correct Answers: " + correctCount);
 
         }
-        else {
+        else if (question3Capture != 1) {
 
             console.log("incorrect");
             wrongCount++;
@@ -125,7 +127,7 @@ $(document).ready(function() {
             $("#correctCountDiv").text("Correct Answers: " + correctCount);
 
         }
-        else {
+        else if (question4Capture != 1) {
 
             console.log("incorrect");
             wrongCount++;
@@ -141,7 +143,7 @@ $(document).ready(function() {
             $("#correctCountDiv").text("Correct Answers: " + correctCount);
 
         }
-        else {
+        else if (question5Capture != 1) {
 
             console.log("incorrect");
             wrongCount++;
@@ -157,7 +159,7 @@ $(document).ready(function() {
             $("#correctCountDiv").text("Correct Answers: " + correctCount);
 
         }
-        else {
+        else if (question6Capture != 1) {
 
             console.log("incorrect");
             wrongCount++;
@@ -173,7 +175,7 @@ $(document).ready(function() {
             $("#correctCountDiv").text("Correct Answers: " + correctCount);
 
         }
-        else {
+        else if (question7Capture != 1) {
 
             console.log("incorrect");
             wrongCount++;
@@ -189,7 +191,7 @@ $(document).ready(function() {
             $("#correctCountDiv").text("Correct Answers: " + correctCount);
 
         }
-        else {
+        else if (question8Capture != 1) {
 
             console.log("incorrect");
             wrongCount++;
@@ -205,7 +207,7 @@ $(document).ready(function() {
             $("#correctCountDiv").text("Correct Answers: " + correctCount);
 
         }
-        else {
+        else if (question9Capture != 1) {
 
             console.log("incorrect");
             wrongCount++;
@@ -221,7 +223,7 @@ $(document).ready(function() {
             $("#correctCountDiv").text("Correct Answers: " + correctCount);
 
         }
-        else {
+        else if (question10Capture != 1) {
 
             console.log("incorrect");
             wrongCount++;
@@ -249,10 +251,13 @@ $(document).ready(function() {
             
             console.log("times up!")
 
-            gameOver();
+            //gameOver();
         }
 
         debugger;
+
+        //Noticed "flashing" issue occurs because for some reason the page runs through the entire click function, and then brings back the "start screen"
+        //HAVE YET TO RESOLVE -- AS FAR AS I'M AWARE THIS IS THE ONLY ISSUE
 
     });
 
