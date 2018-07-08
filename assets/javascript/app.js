@@ -28,22 +28,28 @@ $(document).ready(function() {
 
         $("#timeLeft").text("Time Left: " + timer + " seconds");
 
-        if (timer = 0) {
+        if (timer == 0) {
 
-            gameOver();
+            endGame === true;
         }
-
+        
         console.log(timer);
 
     }
+
+    //function to show content
 
     function showContent (j) {
         $(j).show();
     }
 
+    //function to hide content
+
     function hideContent (j) {
         $(j).hide();
     }
+
+    //function to start the game
 
     function gameStart() {
 
@@ -53,13 +59,27 @@ $(document).ready(function() {
 
         hideContent(".startScreen");
 
+        hideContent(".endScreen");
+
         timerCountDown();
 
     }
 
+    //function for when the game ends
+
     function gameOver() {
+
+        hideContent(".playScreen");
+
+        hideContent(".bannerScreen");
+
+        hideContent(".startScreen");
+
+        showContent(".endScreen");
         
     }
+
+    //function to initialize the screen before the user presses the button
 
     function initializeScreen () {
 
@@ -72,26 +92,26 @@ $(document).ready(function() {
         showContent(".startScreen");
     }
 
-    //set up screen before game begins
+    //function for going through responses
+
+    //calling initializeScreen function
 
     initializeScreen();
 
     //start game click event
 
     $("#startButton").on("click", function() {
+
         gameStart();
 
+        if (endGame) {
+            
+            console.log("times up!")
+
+            gameOver();
+        }
+
     });
-
-
-
-
-
-
-
-
-
-
 
 
 });
