@@ -10,8 +10,6 @@ $(document).ready(function() {
 
     var endGame = false;
 
-    var userResponse;
-
     //capturing responses from user input
 
     var question1Capture =  $("input[name='question1']:checked").val();
@@ -28,7 +26,7 @@ $(document).ready(function() {
 
     //!! If extra time, add audio queues here!!
     
-    // !!
+    // !!----------------
 
     // setting timeout
 
@@ -42,7 +40,7 @@ $(document).ready(function() {
 
         $("#timeLeft").text("Time Left: " + timer + " seconds");
 
-        if (timer == 0) {
+        if (timer === 0) {
 
             endGame === true;
         }
@@ -67,13 +65,13 @@ $(document).ready(function() {
 
     function gameStart() {
 
-        showContent(".playScreen");
+        $(".playScreen").show();
 
-        showContent(".bannerScreen");
+        $(".bannerScreen").show();
 
-        hideContent(".startScreen");
+        $(".startScreen").hide();
 
-        hideContent(".endScreen");
+        $(".endScreen").hide();
 
         timerCountDown();
 
@@ -113,6 +111,7 @@ $(document).ready(function() {
         // question 1
 
         if (question1Capture === 1) {
+            
 
             console.log("correct");
             correctCount++;
@@ -281,6 +280,8 @@ $(document).ready(function() {
 
         gameStart();
 
+        responseCheck();
+
         if (endGame) {
             
             console.log("times up!")
@@ -290,12 +291,9 @@ $(document).ready(function() {
 
     });
 
-    $("#submitButton").on("click", function() {
+    //if the submit button is pressed before the time runs out
 
-        gameOver();
-
-
-    });
+    $("#submitButton").on("click", gameOver);
 
 
 });
