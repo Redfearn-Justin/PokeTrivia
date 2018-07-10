@@ -12,16 +12,16 @@ $(document).ready(function() {
 
     //capturing responses from user input
 
-    var question1Capture =  $("input[name='question1']:checked").val();
-    var question2Capture =  $("input[name='question2']:checked").val();
-    var question3Capture =  $("input[name='question3']:checked").val();
-    var question4Capture =  $("input[name='question4']:checked").val();
-    var question5Capture =  $("input[name='question5']:checked").val();
-    var question6Capture =  $("input[name='question6']:checked").val();
-    var question7Capture =  $("input[name='question7']:checked").val();
-    var question8Capture =  $("input[name='question8']:checked").val();
-    var question9Capture =  $("input[name='question9']:checked").val();
-    var question10Capture = $("input[name='question10']:checked").val();
+    // var question1Capture =  $("input[name='question1']:checked").val();
+    // var question2Capture =  $("input[name='question2']:checked").val();
+    // var question3Capture =  $("input[name='question3']:checked").val();
+    // var question4Capture =  $("input[name='question4']:checked").val();
+    // var question5Capture =  $("input[name='question5']:checked").val();
+    // var question6Capture =  $("input[name='question6']:checked").val();
+    // var question7Capture =  $("input[name='question7']:checked").val();
+    // var question8Capture =  $("input[name='question8']:checked").val();
+    // var question9Capture =  $("input[name='question9']:checked").val();
+    // var question10Capture = $("input[name='question10']:checked").val();
 
 
     //!! If extra time, add audio queues here!!
@@ -30,7 +30,7 @@ $(document).ready(function() {
 
     // setting timeout
 
-    setTimeout(timerCountDown, 1000 * 45);
+    setTimeout(timerCountDown, 100 * 45);
 
     //functions
 
@@ -53,6 +53,8 @@ $(document).ready(function() {
 
     function gameOver() {
 
+        event.preventDefault();
+
         $(".playScreen").hide();
 
         $(".bannerScreen").hide();
@@ -71,7 +73,7 @@ $(document).ready(function() {
 
         // question 1
 
-        if (question1Capture === 1) {
+        if ($(this).val() === 1) {
             
 
             console.log("correct");
@@ -79,7 +81,7 @@ $(document).ready(function() {
             $("#correctCountDiv").text("Correct Answers: " + correctCount);
 
         }
-        else if (question1Capture != 1) {
+        else if ($(this).val() != 1) {
 
             console.log("incorrect");
             wrongCount++;
@@ -88,14 +90,14 @@ $(document).ready(function() {
 
         //question 2
 
-        if (question2Capture === 1) {
+        if ($(this).val() === 1) {
 
             console.log("correct");
             correctCount++;
             $("#correctCountDiv").text("Correct Answers: " + correctCount);
 
         }
-        else if (question2Capture != 1) {
+        else if ($(this).val() != 1) {
 
             console.log("incorrect");
             wrongCount++;
@@ -104,14 +106,14 @@ $(document).ready(function() {
 
         //question 3
 
-        if (question3Capture === 1) {
+        if ($(this).val() === 1) {
 
             console.log("correct");
             correctCount++;
             $("#correctCountDiv").text("Correct Answers: " + correctCount);
 
         }
-        else if (question3Capture != 1) {
+        else if ($(this).val() != 1) {
 
             console.log("incorrect");
             wrongCount++;
@@ -120,14 +122,14 @@ $(document).ready(function() {
 
         //question 4
 
-        if (question4Capture === 1) {
+        if ($(this).val() === 1) {
 
             console.log("correct");
             correctCount++;
             $("#correctCountDiv").text("Correct Answers: " + correctCount);
 
         }
-        else if (question4Capture != 1) {
+        else if ($(this).val() != 1) {
 
             console.log("incorrect");
             wrongCount++;
@@ -136,14 +138,14 @@ $(document).ready(function() {
 
         //question 5
 
-        if (question5Capture === 1) {
+        if ($(this).val() === 1) {
 
             console.log("correct");
             correctCount++;
             $("#correctCountDiv").text("Correct Answers: " + correctCount);
 
         }
-        else if (question5Capture != 1) {
+        else if ($(this).val() != 1) {
 
             console.log("incorrect");
             wrongCount++;
@@ -152,14 +154,14 @@ $(document).ready(function() {
 
         //question 6
 
-        if (question6Capture === 1) {
+        if ($(this).val() === 1) {
 
             console.log("correct");
             correctCount++;
             $("#correctCountDiv").text("Correct Answers: " + correctCount);
 
         }
-        else if (question6Capture != 1) {
+        else if ($(this).val() != 1) {
 
             console.log("incorrect");
             wrongCount++;
@@ -168,14 +170,14 @@ $(document).ready(function() {
 
         //question 7
 
-        if (question7Capture === 1) {
+        if ($(this).val() === 1) {
 
             console.log("correct");
             correctCount++;
             $("#correctCountDiv").text("Correct Answers: " + correctCount);
 
         }
-        else if (question7Capture != 1) {
+        else if ($(this).val() != 1) {
 
             console.log("incorrect");
             wrongCount++;
@@ -184,14 +186,14 @@ $(document).ready(function() {
 
         //question 8
 
-        if (question8Capture === 1) {
+        if ($(this).val() === 1) {
 
             console.log("correct");
             correctCount++;
             $("#correctCountDiv").text("Correct Answers: " + correctCount);
 
         }
-        else if (question8Capture != 1) {
+        else if ($(this).val() != 1) {
 
             console.log("incorrect");
             wrongCount++;
@@ -200,14 +202,14 @@ $(document).ready(function() {
 
         //question 9
 
-        if (question9Capture === 1) {
+        if ($(this).val() === 1) {
 
             console.log("correct");
             correctCount++;
             $("#correctCountDiv").text("Correct Answers: " + correctCount);
 
         }
-        else if (question9Capture != 1) {
+        else if ($(this).val() != 1) {
 
             console.log("incorrect");
             wrongCount++;
@@ -216,14 +218,14 @@ $(document).ready(function() {
 
         //question 10
 
-        if (question10Capture === 1) {
+        if ($(this).val() === 1) {
 
             console.log("correct");
             correctCount++;
             $("#correctCountDiv").text("Correct Answers: " + correctCount);
 
         }
-        else if (question10Capture != 1) {
+        else if ($(this).val() != 1) {
 
             console.log("incorrect");
             wrongCount++;
@@ -235,6 +237,8 @@ $(document).ready(function() {
 
     $("#startButton").on("click", function() {
 
+        event.preventDefault();
+
         $(".playScreen").show();
 
         $(".bannerScreen").show();
@@ -245,25 +249,30 @@ $(document).ready(function() {
 
         timerCountDown();
 
-        responseCheck();
-
         if (endGame) {
             
             console.log("times up!")
 
-            //gameOver();
+            gameOver();
         }
 
-        debugger;
+    });
 
-        //Noticed "flashing" issue occurs because for some reason the page runs through the entire click function, and then brings back the "start screen"
-        //HAVE YET TO RESOLVE -- AS FAR AS I'M AWARE THIS IS THE ONLY ISSUE
+    //on click attempt to record user presses in quiz
 
+    $("input").on("click", function() {
+
+        responseCheck();
     });
 
     //if the submit button is pressed before the time runs out
 
-    $("#submitButton").on("click", gameOver);
+    $("#submitButton").on("click", function() {
+
+        gameOver();
+
+        clearTimeout(timerCountDown);
+    });
 
 
 });
