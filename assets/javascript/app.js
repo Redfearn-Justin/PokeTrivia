@@ -10,9 +10,11 @@ $(document).ready(function() {
 
     var endGame = false;
 
+    var noDoubleDip = false;
+
     //capturing responses from user input
 
-    // var question1Capture =  $("input[name='question1']:checked").val();
+    // var question1Capture =  $("input[name= question1]:checked").val();
     // var question2Capture =  $("input[name='question2']:checked").val();
     // var question3Capture =  $("input[name='question3']:checked").val();
     // var question4Capture =  $("input[name='question4']:checked").val();
@@ -28,24 +30,30 @@ $(document).ready(function() {
     
     // !!----------------
 
-    // setting timeout
+    // setting timeout -- TIMER DOES NOT DECREMENT PROPERLY <-- UNRESOLVED
 
-    setTimeout(timerCountDown, 100 * 45);
+    setTimeout(timerCountDown, 1000 * 45);
 
     //functions
 
     function timerCountDown() {
 
-        timer--;
+        if (timer > 0) {
 
-        $("#timeLeft").text("Time Left: " + timer + " seconds");
+            endGame;
+
+            timer--;
+
+            $("#timeLeft").text("Time Left: " + timer + " seconds");
+
+            console.log(timer);
+
+        }
 
         if (timer === 0) {
 
             endGame === true;
         }
-        
-        console.log(timer);
 
     }
 
@@ -67,170 +75,170 @@ $(document).ready(function() {
         
     }
 
-    //function for going through responses
+    //function for going through responses; issue: COUNTS ALL FOR ONE <--- UNRESOLVED
 
     function responseCheck() {
 
         // question 1
 
-        if ($(this).val() === 1) {
-            
+        if (parseInt($("input[name= question1]:checked").val()) === 1) {
 
             console.log("correct");
             correctCount++;
             $("#correctCountDiv").text("Correct Answers: " + correctCount);
 
         }
-        else if ($(this).val() != 1) {
+        else {
 
             console.log("incorrect");
             wrongCount++;
             $("#wrongCountDiv").text("Wrong Answers: " + wrongCount);
+
         }
 
         //question 2
 
-        if ($(this).val() === 1) {
+        if (parseInt($("input[name= question2]:checked").val()) === 1) {
 
             console.log("correct");
             correctCount++;
             $("#correctCountDiv").text("Correct Answers: " + correctCount);
 
         }
-        else if ($(this).val() != 1) {
+        else {
 
             console.log("incorrect");
             wrongCount++;
             $("#wrongCountDiv").text("Wrong Answers: " + wrongCount);
         }
 
-        //question 3
+        // //question 3
 
-        if ($(this).val() === 1) {
+        // if ($("input[name='question3']:checked").val() === 1) {
 
-            console.log("correct");
-            correctCount++;
-            $("#correctCountDiv").text("Correct Answers: " + correctCount);
+        //     console.log("correct");
+        //     correctCount++;
+        //     $("#correctCountDiv").text("Correct Answers: " + correctCount);
 
-        }
-        else if ($(this).val() != 1) {
+        // }
+        // else {
 
-            console.log("incorrect");
-            wrongCount++;
-            $("#wrongCountDiv").text("Wrong Answers: " + wrongCount);
-        }
+        //     console.log("incorrect");
+        //     wrongCount++;
+        //     $("#wrongCountDiv").text("Wrong Answers: " + wrongCount);
+        // }
 
-        //question 4
+        // //question 4
 
-        if ($(this).val() === 1) {
+        // if ($("input[name='question4']:checked").val() === 1) {
 
-            console.log("correct");
-            correctCount++;
-            $("#correctCountDiv").text("Correct Answers: " + correctCount);
+        //     console.log("correct");
+        //     correctCount++;
+        //     $("#correctCountDiv").text("Correct Answers: " + correctCount);
 
-        }
-        else if ($(this).val() != 1) {
+        // }
+        // else {
 
-            console.log("incorrect");
-            wrongCount++;
-            $("#wrongCountDiv").text("Wrong Answers: " + wrongCount);
-        }
+        //     console.log("incorrect");
+        //     wrongCount++;
+        //     $("#wrongCountDiv").text("Wrong Answers: " + wrongCount);
+        // }
 
-        //question 5
+        // //question 5
 
-        if ($(this).val() === 1) {
+        // if ($("input[name='question5']:checked").val() === 1) {
 
-            console.log("correct");
-            correctCount++;
-            $("#correctCountDiv").text("Correct Answers: " + correctCount);
+        //     console.log("correct");
+        //     correctCount++;
+        //     $("#correctCountDiv").text("Correct Answers: " + correctCount);
 
-        }
-        else if ($(this).val() != 1) {
+        // }
+        // else {
 
-            console.log("incorrect");
-            wrongCount++;
-            $("#wrongCountDiv").text("Wrong Answers: " + wrongCount);
-        }
+        //     console.log("incorrect");
+        //     wrongCount++;
+        //     $("#wrongCountDiv").text("Wrong Answers: " + wrongCount);
+        // }
 
-        //question 6
+        // //question 6
 
-        if ($(this).val() === 1) {
+        // if ($("input[name='question6']:checked").val() === 1) {
 
-            console.log("correct");
-            correctCount++;
-            $("#correctCountDiv").text("Correct Answers: " + correctCount);
+        //     console.log("correct");
+        //     correctCount++;
+        //     $("#correctCountDiv").text("Correct Answers: " + correctCount);
 
-        }
-        else if ($(this).val() != 1) {
+        // }
+        // else {
 
-            console.log("incorrect");
-            wrongCount++;
-            $("#wrongCountDiv").text("Wrong Answers: " + wrongCount);
-        }
+        //     console.log("incorrect");
+        //     wrongCount++;
+        //     $("#wrongCountDiv").text("Wrong Answers: " + wrongCount);
+        // }
 
-        //question 7
+        // //question 7
 
-        if ($(this).val() === 1) {
+        // if ($("input[name='question7']:checked").val() === 1) {
 
-            console.log("correct");
-            correctCount++;
-            $("#correctCountDiv").text("Correct Answers: " + correctCount);
+        //     console.log("correct");
+        //     correctCount++;
+        //     $("#correctCountDiv").text("Correct Answers: " + correctCount);
 
-        }
-        else if ($(this).val() != 1) {
+        // }
+        // else {
 
-            console.log("incorrect");
-            wrongCount++;
-            $("#wrongCountDiv").text("Wrong Answers: " + wrongCount);
-        }
+        //     console.log("incorrect");
+        //     wrongCount++;
+        //     $("#wrongCountDiv").text("Wrong Answers: " + wrongCount);
+        // }
 
-        //question 8
+        // //question 8
 
-        if ($(this).val() === 1) {
+        // if ($("input[name='question8']:checked").val() === 1) {
 
-            console.log("correct");
-            correctCount++;
-            $("#correctCountDiv").text("Correct Answers: " + correctCount);
+        //     console.log("correct");
+        //     correctCount++;
+        //     $("#correctCountDiv").text("Correct Answers: " + correctCount);
 
-        }
-        else if ($(this).val() != 1) {
+        // }
+        // else {
 
-            console.log("incorrect");
-            wrongCount++;
-            $("#wrongCountDiv").text("Wrong Answers: " + wrongCount);
-        }
+        //     console.log("incorrect");
+        //     wrongCount++;
+        //     $("#wrongCountDiv").text("Wrong Answers: " + wrongCount);
+        // }
 
-        //question 9
+        // //question 9
 
-        if ($(this).val() === 1) {
+        // if ($("input[name='question9']:checked").val() === 1) {
 
-            console.log("correct");
-            correctCount++;
-            $("#correctCountDiv").text("Correct Answers: " + correctCount);
+        //     console.log("correct");
+        //     correctCount++;
+        //     $("#correctCountDiv").text("Correct Answers: " + correctCount);
 
-        }
-        else if ($(this).val() != 1) {
+        // }
+        // else {
 
-            console.log("incorrect");
-            wrongCount++;
-            $("#wrongCountDiv").text("Wrong Answers: " + wrongCount);
-        }
+        //     console.log("incorrect");
+        //     wrongCount++;
+        //     $("#wrongCountDiv").text("Wrong Answers: " + wrongCount);
+        // }
 
-        //question 10
+        // //question 10
 
-        if ($(this).val() === 1) {
+        // if ($("input[name='question10']:checked").val() === 1) {
 
-            console.log("correct");
-            correctCount++;
-            $("#correctCountDiv").text("Correct Answers: " + correctCount);
+        //     console.log("correct");
+        //     correctCount++;
+        //     $("#correctCountDiv").text("Correct Answers: " + correctCount);
 
-        }
-        else if ($(this).val() != 1) {
+        // }
+        // else {
 
-            console.log("incorrect");
-            wrongCount++;
-            $("#wrongCountDiv").text("Wrong Answers: " + wrongCount);
-        }
+        //     console.log("incorrect");
+        //     wrongCount++;
+        //     $("#wrongCountDiv").text("Wrong Answers: " + wrongCount);
+        // }
     }
 
     //start game click event
@@ -263,11 +271,27 @@ $(document).ready(function() {
     $("input").on("click", function() {
 
         responseCheck();
+
+        if (noDoubleDip) {
+
+            event.preventDefault();
+
+            //attempt to prevent additional clicks from counting towards appropiate category -- UNRESOLVED <--
+
+            correctCount = "";
+
+            wrongCount = "";
+
+        }
+
+        noDoubleDip = true;
     });
 
     //if the submit button is pressed before the time runs out
 
     $("#submitButton").on("click", function() {
+
+        console.log("Finished before timer ran out");
 
         gameOver();
 
