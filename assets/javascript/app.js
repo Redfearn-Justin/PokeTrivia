@@ -2,7 +2,9 @@ $(document).ready(function() {
 
     //set up variables for game
 
-    var timer = 45;
+    var timer = 46;
+
+    var timerInterval;
 
     var correctCount = 0;
 
@@ -18,7 +20,7 @@ $(document).ready(function() {
 
     // setting timeout -- TIMER DOES NOT DECREMENT PROPERLY <-- UNRESOLVED
 
-    setTimeout(timerCountDown, 1000 * 45);
+    
 
     //functions
 
@@ -28,33 +30,39 @@ $(document).ready(function() {
 
         if (timer > 0) {
 
-            //attempt to keep timer going down <--- UNRESOLVED
-
-            timer--;
-
-            // =========
-
-            endGame;
+            $("#timeLeft").text("Time Left: " + timer + " seconds");
+            console.log(timer);
 
         }
 
         else {
 
-            endGame === true;
+            gameOver("fail");
         }
 
-        $("#timeLeft").text("Time Left: " + timer + " seconds");
-
-        console.log(timer);
+        
 
     }
 
     //function for when the game ends
 
-    function gameOver() {
+    function gameOver(status) {
 
-        event.preventDefault();
+        clearInterval(timerInterval);
 
+        if(status == 'success') {
+
+            alert('you did it');
+        }
+
+        else {
+            
+            alert('time ran out');
+        }
+            
+        console.log("times up!")
+
+     
         $(".playScreen").hide();
 
         $(".bannerScreen").hide();
@@ -73,7 +81,7 @@ $(document).ready(function() {
 
         // question 1
 
-        if (parseInt($("input[name= question1]:checked").val()) === 1) {
+        if (parseInt($("input[class='questions']:checked").val()) === 1) {
 
             console.log("correct");
             correctCount++;
@@ -247,14 +255,7 @@ $(document).ready(function() {
 
         $(".endScreen").hide();
 
-        timerCountDown();
-
-        if (endGame) {
-            
-            console.log("times up!")
-
-            gameOver();
-        }
+        timerInterval = setInterval(timerCountDown, 1000);
 
     });
 
@@ -285,9 +286,9 @@ $(document).ready(function() {
 
         console.log("Finished before timer ran out");
 
-        gameOver();
+        gameOver("success");
 
-        clearTimeout(timerCountDown);
+       
     });
 
 
