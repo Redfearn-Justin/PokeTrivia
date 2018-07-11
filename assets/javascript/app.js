@@ -2,6 +2,10 @@ $(document).ready(function() {
 
     //set up variables for game
 
+    var responsesArray = [];
+
+    //var buttonChecked = parseInt($("input[class='questions']:checked").val());
+
     var timer = 46;
 
     var timerInterval;
@@ -10,16 +14,13 @@ $(document).ready(function() {
 
     var wrongCount = 0;
 
-    var endGame = false;
-
     var noDoubleDip = false;
+
+    //var responses = parseInt($("input[class='questions']:checked").val());
 
     //!! If extra time, add audio queues here!!
     
-    // !!----------------
-
-    // setting timeout -- TIMER DOES NOT DECREMENT PROPERLY <-- UNRESOLVED
-
+    // !!---------------
     
 
     //functions
@@ -31,6 +32,7 @@ $(document).ready(function() {
         if (timer > 0) {
 
             $("#timeLeft").text("Time Left: " + timer + " seconds");
+
             console.log(timer);
 
         }
@@ -39,8 +41,6 @@ $(document).ready(function() {
 
             gameOver("fail");
         }
-
-        
 
     }
 
@@ -56,7 +56,7 @@ $(document).ready(function() {
         }
 
         else {
-            
+
             alert('time ran out');
         }
             
@@ -79,42 +79,33 @@ $(document).ready(function() {
 
     function responseCheck() {
 
-        // question 1
+        // responsesArray.push(buttonChecked);
 
-        if (parseInt($("input[class='questions']:checked").val()) === 1) {
+        console.log(responsesArray);
 
-            console.log("correct");
-            correctCount++;
-            $("#correctCountDiv").text("Correct Answers: " + correctCount);
+        $("input[class='questions']:checked");
+        //debugger;
 
-        }
-        else {
 
-            console.log("incorrect");
-            wrongCount++;
-            $("#wrongCountDiv").text("Wrong Answers: " + wrongCount);
+        for (var j = 0; j > responsesArray.length; j++) {
 
-        }
+            if (parseInt($("input[class='questions']:checked").val()) === 1) {
+                console.log("correct");
+                correctCount++;
+                $("#correctCountDiv").text("Correct Answers: " + correctCount);
+            }
 
-        //question 2
-
-        if (parseInt($("input[name= question2]:checked").val()) === 1) {
-
-            console.log("correct");
-            correctCount++;
-            $("#correctCountDiv").text("Correct Answers: " + correctCount);
+            else {
+                console.log("incorrecet");
+                wrongCount++;
+                $("#wrongCountDiv").text("wrong Answers: " + wrongCount);
+            }
 
         }
-        else {
 
-            console.log("incorrect");
-            wrongCount++;
-            $("#wrongCountDiv").text("Wrong Answers: " + wrongCount);
-        }
+        // // question 1
 
-        // //question 3
-
-        // if ($("input[name='question3']:checked").val() === 1) {
+        // if (parseInt($("input[class='questions']:checked").val()) === 1) {
 
         //     console.log("correct");
         //     correctCount++;
@@ -126,119 +117,9 @@ $(document).ready(function() {
         //     console.log("incorrect");
         //     wrongCount++;
         //     $("#wrongCountDiv").text("Wrong Answers: " + wrongCount);
-        // }
-
-        // //question 4
-
-        // if ($("input[name='question4']:checked").val() === 1) {
-
-        //     console.log("correct");
-        //     correctCount++;
-        //     $("#correctCountDiv").text("Correct Answers: " + correctCount);
 
         // }
-        // else {
 
-        //     console.log("incorrect");
-        //     wrongCount++;
-        //     $("#wrongCountDiv").text("Wrong Answers: " + wrongCount);
-        // }
-
-        // //question 5
-
-        // if ($("input[name='question5']:checked").val() === 1) {
-
-        //     console.log("correct");
-        //     correctCount++;
-        //     $("#correctCountDiv").text("Correct Answers: " + correctCount);
-
-        // }
-        // else {
-
-        //     console.log("incorrect");
-        //     wrongCount++;
-        //     $("#wrongCountDiv").text("Wrong Answers: " + wrongCount);
-        // }
-
-        // //question 6
-
-        // if ($("input[name='question6']:checked").val() === 1) {
-
-        //     console.log("correct");
-        //     correctCount++;
-        //     $("#correctCountDiv").text("Correct Answers: " + correctCount);
-
-        // }
-        // else {
-
-        //     console.log("incorrect");
-        //     wrongCount++;
-        //     $("#wrongCountDiv").text("Wrong Answers: " + wrongCount);
-        // }
-
-        // //question 7
-
-        // if ($("input[name='question7']:checked").val() === 1) {
-
-        //     console.log("correct");
-        //     correctCount++;
-        //     $("#correctCountDiv").text("Correct Answers: " + correctCount);
-
-        // }
-        // else {
-
-        //     console.log("incorrect");
-        //     wrongCount++;
-        //     $("#wrongCountDiv").text("Wrong Answers: " + wrongCount);
-        // }
-
-        // //question 8
-
-        // if ($("input[name='question8']:checked").val() === 1) {
-
-        //     console.log("correct");
-        //     correctCount++;
-        //     $("#correctCountDiv").text("Correct Answers: " + correctCount);
-
-        // }
-        // else {
-
-        //     console.log("incorrect");
-        //     wrongCount++;
-        //     $("#wrongCountDiv").text("Wrong Answers: " + wrongCount);
-        // }
-
-        // //question 9
-
-        // if ($("input[name='question9']:checked").val() === 1) {
-
-        //     console.log("correct");
-        //     correctCount++;
-        //     $("#correctCountDiv").text("Correct Answers: " + correctCount);
-
-        // }
-        // else {
-
-        //     console.log("incorrect");
-        //     wrongCount++;
-        //     $("#wrongCountDiv").text("Wrong Answers: " + wrongCount);
-        // }
-
-        // //question 10
-
-        // if ($("input[name='question10']:checked").val() === 1) {
-
-        //     console.log("correct");
-        //     correctCount++;
-        //     $("#correctCountDiv").text("Correct Answers: " + correctCount);
-
-        // }
-        // else {
-
-        //     console.log("incorrect");
-        //     wrongCount++;
-        //     $("#wrongCountDiv").text("Wrong Answers: " + wrongCount);
-        // }
     }
 
     //start game click event
@@ -261,15 +142,17 @@ $(document).ready(function() {
 
     //on click attempt to record user presses in quiz
 
-    $("input").on("click", function() {
+    $("#submitButton").on("click", function() {
 
         responseCheck();
 
         if (noDoubleDip) {
 
-            event.preventDefault();
+            ///event.preventDefault();
 
             //attempt to prevent additional clicks from counting towards appropiate category -- UNRESOLVED <--
+
+            //above code actually stopped another
 
             correctCount = "";
 
@@ -283,6 +166,8 @@ $(document).ready(function() {
     //if the submit button is pressed before the time runs out
 
     $("#submitButton").on("click", function() {
+
+        event.preventDefault();
 
         console.log("Finished before timer ran out");
 
