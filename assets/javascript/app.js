@@ -12,20 +12,6 @@ $(document).ready(function() {
 
     var noDoubleDip = false;
 
-    //capturing responses from user input
-
-    // var question1Capture =  $("input[name= question1]:checked").val();
-    // var question2Capture =  $("input[name='question2']:checked").val();
-    // var question3Capture =  $("input[name='question3']:checked").val();
-    // var question4Capture =  $("input[name='question4']:checked").val();
-    // var question5Capture =  $("input[name='question5']:checked").val();
-    // var question6Capture =  $("input[name='question6']:checked").val();
-    // var question7Capture =  $("input[name='question7']:checked").val();
-    // var question8Capture =  $("input[name='question8']:checked").val();
-    // var question9Capture =  $("input[name='question9']:checked").val();
-    // var question10Capture = $("input[name='question10']:checked").val();
-
-
     //!! If extra time, add audio queues here!!
     
     // !!----------------
@@ -38,22 +24,28 @@ $(document).ready(function() {
 
     function timerCountDown() {
 
+        timer--;
+
         if (timer > 0) {
 
-            endGame;
+            //attempt to keep timer going down <--- UNRESOLVED
 
             timer--;
 
-            $("#timeLeft").text("Time Left: " + timer + " seconds");
+            // =========
 
-            console.log(timer);
+            endGame;
 
         }
 
-        if (timer === 0) {
+        else {
 
             endGame === true;
         }
+
+        $("#timeLeft").text("Time Left: " + timer + " seconds");
+
+        console.log(timer);
 
     }
 
