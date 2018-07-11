@@ -2,10 +2,6 @@ $(document).ready(function() {
 
     //set up variables for game
 
-    var responsesArray = [];
-
-    //var buttonChecked = parseInt($("input[class='questions']:checked").val());
-
     var timer = 46;
 
     var timerInterval;
@@ -14,14 +10,15 @@ $(document).ready(function() {
 
     var wrongCount = 0;
 
-    var noDoubleDip = false;
+    //audio queue variables
 
-    //var responses = parseInt($("input[class='questions']:checked").val());
+    var openingSong = new Audio("assets/media/101-opening.mp3");
 
-    //!! If extra time, add audio queues here!!
-    
-    // !!---------------
-    
+    var quizSong = new Audio ("assets/media/115-battle.mp3");
+
+    var endSong = new Audio ("assets/media/145-ending.mp3");
+
+    var submitSong = new Audio ("assets/media/012-submit.mp3");
 
     //functions
 
@@ -52,17 +49,21 @@ $(document).ready(function() {
 
         if(status == 'success') {
 
-            alert('you did it');
+            console.log('You Did It');
         }
 
         else {
 
-            alert('time ran out');
+            console.log('Time Ran Out');
         }
-            
-        console.log("times up!")
 
-     
+        console.log("times up!");
+
+        //play this track when the game is over
+
+        endSong.play();
+
+
         $(".playScreen").hide();
 
         $(".bannerScreen").hide();
@@ -72,55 +73,41 @@ $(document).ready(function() {
         $(".endScreen").show();
 
         console.log("game's over!");
-        
-    }
 
-    //function for going through responses; issue: COUNTS ALL FOR ONE <--- UNRESOLVED
+    }
 
     function responseCheck() {
 
-        // responsesArray.push(buttonChecked);
+      $("input[type='radio']:checked").each(function() {
 
-        console.log(responsesArray);
-
-        $("input[class='questions']:checked");
-        //debugger;
-
-
-        for (var j = 0; j > responsesArray.length; j++) {
-
-            if (parseInt($("input[class='questions']:checked").val()) === 1) {
-                console.log("correct");
+            if (parseInt($(this).val()) === 1) {
                 correctCount++;
                 $("#correctCountDiv").text("Correct Answers: " + correctCount);
             }
 
             else {
-                console.log("incorrecet");
                 wrongCount++;
                 $("#wrongCountDiv").text("wrong Answers: " + wrongCount);
             }
 
-        }
-
-        // // question 1
-
-        // if (parseInt($("input[class='questions']:checked").val()) === 1) {
-
-        //     console.log("correct");
-        //     correctCount++;
-        //     $("#correctCountDiv").text("Correct Answers: " + correctCount);
-
-        // }
-        // else {
-
-        //     console.log("incorrect");
-        //     wrongCount++;
-        //     $("#wrongCountDiv").text("Wrong Answers: " + wrongCount);
-
-        // }
+        });
 
     }
+
+    setTimeout(openingTrackPlay, 1500);
+
+    function openingTrackPlay () {
+
+      openingSong.autoplay = true;
+
+      openingSong.play();
+
+
+    }
+
+    // play this track when page opens
+
+    openingTrackPlay();
 
     //start game click event
 
@@ -138,29 +125,12 @@ $(document).ready(function() {
 
         timerInterval = setInterval(timerCountDown, 1000);
 
-    });
+        // pause openingsong and start quizSong when start button is pressed
 
-    //on click attempt to record user presses in quiz
+        openingSong.pause();
 
-    $("#submitButton").on("click", function() {
+        quizSong.play();
 
-        responseCheck();
-
-        if (noDoubleDip) {
-
-            ///event.preventDefault();
-
-            //attempt to prevent additional clicks from counting towards appropiate category -- UNRESOLVED <--
-
-            //above code actually stopped another
-
-            correctCount = "";
-
-            wrongCount = "";
-
-        }
-
-        noDoubleDip = true;
     });
 
     //if the submit button is pressed before the time runs out
@@ -169,12 +139,18 @@ $(document).ready(function() {
 
         event.preventDefault();
 
+        //pause quiz music so that the submit button sound can play
+
+        quizSong.pause();
+
+        submitSong.play();
+
+        responseCheck();
+
         console.log("Finished before timer ran out");
 
         gameOver("success");
 
-       
     });
-
 
 });
