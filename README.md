@@ -10,7 +10,7 @@
 
 ### Technologies Utilized
 
-* **Frontend**: HTML, CSS, Javascript
+* **Frontend**: HTML, CSS, Javascript, jQuery
 
 ### Instructions
 
